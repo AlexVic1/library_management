@@ -1,0 +1,15 @@
+{%extends 'base.html' %} {%block title%} Add customer {%endblock%}
+ {%block h1%} Add customer {%endblock%} 
+
+  {%block content%}
+  {%if messages%}
+ {%for message in messages%}
+ <label>{{message}}</label>
+{%endfor%}
+{%endif%}
+  <form method="POST">
+    {% csrf_token %} {{form}}<button type="submit">Submit</button>
+  </form>
+
+  {%endblock%}
+</label>

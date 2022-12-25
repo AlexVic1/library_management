@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{%block title%}{%endblock%}</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        {%if request.user.is_authenticated%}
+        <li><a href="{%url 'list_menu' %}">Return to menu</a></li>
+        {%endif%}
+        {%block menu%} {%endblock%}
+        
+      </nav>
+    </header>
+    <main>
+      <div>
+        <h1>{%block h1%}{%endblock%}</h1>
+        {%if messages%}
+        {%for message in messages%}
+        <label style="color:red ;">{{message}}</label> <br>
+       {%endfor%}
+       {%endif%}
+        {%block content%}{%endblock%}
+      </div>
+    </main>
+  </body>
+</html>
